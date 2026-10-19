@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <!-- hf3d-Demo „RONDO“: erfundener Drehregler aus Grundformen. 9,6 s, 10 Einstellungen. Nur Three.js, kein HTML-Text. -->
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "./vendor/hf3d/three/three.module.min.js",
+          "three/addons/": "./vendor/hf3d/three/addons/",
+          "hf3d": "./vendor/hf3d/hf3d.js"
+        }
+      }
+    </script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1920px; height: 1080px; overflow: hidden; }
+      #root { position: relative; width: 1920px; height: 1080px; overflow: hidden; background: #e7d9cf; }
+      #stage { position: absolute; inset: 0; width: 1920px; height: 1080px; display: block; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-no-timeline data-start="0" data-duration="9.6" data-width="1920" data-height="1080" data-fps="30">
+      <canvas id="stage" width="1920" height="1080"></canvas>
+    </div>
+    <script type="module">
+      import { THREE, createStudio, shotRig, studioLights, mat, lathe, knurl, roundedBox, ribbon, contactShadow, shadowFloor,
+        castAll, seg, ease, lerp, clamp01, Swarm, layouts, loadFont, extrudeLetters } from "hf3d";
+
+      // ───── Hintergründe je Einstellung (sRGB) ─────
+      const BG = {
+        warm: { top: "#f3e9e2", bottom: "#de9670", glow: "#fff6ee", glowPos: [0.62, 0.38], glowStrength: 0.55, glow2: "#ff8a4c", glow2Pos: [0.08, 0.95], glow2Strength: 0.35 },
+        cool: { top: "#e9edf2", bottom: "#c9b8ae", glow: "#ffffff", glowPos: [0.3, 0.3], glowStrength: 0.5, glow2: "#ff9a5e", glow2Pos: [0.95, 0.9], glow2Strength: 0.3 },
+        dark: { top: "#2a2626", bottom: "#0f0d0e", glow: "#7a4630", glowPos: [0.7, 0.7], glowStrength: 0.6, glow2: "#3b4250", glow2Pos: [0.1, 0.1], glow2Strength: 0.4 },
+        end:  { top: "#f6f1ed", bottom: "#e9c6b0", glow: "#ffffff", glowPos: [0.5, 0.45], glowStrength: 0.6, glow2: "#ff7a3c", glow2Pos: [0.92, 0.1], glow2Strength: 0.25 },
+      };
+
+      const studio = createStudio({
+        canvas: document.getElementById("stage"),
+        env: "studio", envOptions: { tone: "bright", key: 4.2, strip: 6, walls: "#a49c97", floor: "#e6dcd4" }, envIntensity: 1.0,
+        background: BG.warm,
+        post: { dof: { bokeh: 12, maxBlur: 26, quality: 0.8 }, bloom: { strength: 0.35, radius: 0.5, threshold: 1.9 }, grain: 0.03, vignette: 0.18, aberration: 0.8 },
+        exposure: 0.88,
+        // Bewegungsunschärfe nur auf den schnellen Einstellungen (kostet n-fach)
+        motionBlur: (t) => ((t >= 1.1 && t < 1.85) || (t >= 7.3 && t < 8.2) ? { samples: 8, shutter: 0.35 } : null), // immer ganze Einstellungen, sonst springt die Schärfe
+      });
+      const { scene } = studio;
+      const lights = studioLights(scene, { target: [0, 0.4, 0], key: { pos: [-3.5, 6, 4], color: "#fff2e6", intensity: 2.6 },
+        rim: { pos: [4, 3, -5], color: "#dfe8ff", intensity: 2.2 }, fill: { pos: [3, 1.2, 6], color: "#ffe3cf", intensity: 0.5 },
+        shadow: { size: 2048, area: 3.2, near: 0.5, far: 20, bias: -0.0004, normalBias: 0.02, radius: 5 } });
+      scene.add(shadowFloor({ opacity: 0.2 }));
+      const cshadow = contactShadow({ size: 3.2, opacity: 0.4, color: "#3a2116" }); cshadow.position.y = 0.002; scene.add(cshadow);
+
+      // ───── Produkt RONDO (alles Grundformen) ─────
+      const product = new THREE.Group(); scene.add(product);
+      const part = (name) => { const g = new THREE.Group(); g.name = name; product.add(g); return g; };
+      const foot = part("foot"), body = part("body"), dial = part("dial"), display = part("display"), glass = part("glass");
+
+      foot.add(new THREE.Mesh(lathe([[0, 0], [0.9, 0], [0.93, 0.025], [0.93, 0.05], [0, 0.05]], { segments: 160, fillet: 0.01 }),
+        mat.glossyPlastic({ color: "#ff5a1f" })));
+      const alu = mat.brushedMetal({ color: "#e4e5e8", roughness: 0.26, repeat: [6, 1], anisotropy: 0.9 });
+      body.add(new THREE.Mesh(lathe([[0, 0.05], [0.985, 0.05], [1.0, 0.07], [1.0, 0.385], [0.985, 0.4], [0, 0.4]], { segments: 200, fillet: 0.012 }), alu));
+      // zwei Keramik-Tasten an der Seite
+      const buttons = [];
+      for (const [a, i] of [[0.32, 0], [0.62, 1]]) {
+        const piv = new THREE.Group(); piv.rotation.y = a; body.add(piv);
+        const b = new THREE.Mesh(roundedBox(0.24, 0.075, 0.07, 0.034, 6), mat.ceramic({ color: i ? "#f1ece6" : "#ff5a1f" }));
+        b.position.set(0, 0.225, 1.0); piv.add(b); buttons.push(b);
+      }
+      // Drehring mit Rändelung
+      const wall = Array.from({ length: 31 }, (_, i) => [1.0, 0.41 + i * 0.005]); // Kragen 0,40–0,43 bleibt glatt // viele Stützpunkte, damit die Rändelung greift
+      const dialGeo = lathe([[0.87, 0.4], [1.0, 0.4], ...wall, [1.0, 0.57], [0.985, 0.59], [0.895, 0.59], [0.87, 0.575], [0.87, 0.4]], { segments: 720, fillet: 0.008 });
+      knurl(dialGeo, { ribs: 120, depth: 0.012, yMin: 0.39, yMax: 0.6, rMin: 0.95, soft: 0.001 }); // Rippen laufen über die Kanten aus: keine Rampen-Facetten
+      const dialMesh = new THREE.Mesh(dialGeo, mat.brushedMetal({ color: "#9a9ea6", roughness: 0.22, repeat: [1, 1], anisotropy: 0.6, bump: 0.01 })); // Graphit, eloxiert
+      dial.add(dialMesh);
+      // Display: dunkles Bett, 72 Leucht-Striche, Mittelpunkt
+      display.add(new THREE.Mesh(lathe([[0, 0.44], [0.86, 0.44], [0.86, 0.5], [0, 0.5]], { segments: 160 }), mat.softTouch({ color: "#121214", roughness: 0.5, sheen: 0.2 })));
+      const NT = 72;
+      const tickMat = new THREE.MeshBasicMaterial({ color: 0xffffff, toneMapped: false });
+      const ticks = new THREE.InstancedMesh(new THREE.BoxGeometry(0.016, 0.004, 0.1), tickMat, NT); ticks.frustumCulled = false;
+      const dmy = new THREE.Object3D();
+      for (let i = 0; i < NT; i++) { const a = (i / NT) * Math.PI * 2; dmy.position.set(Math.sin(a) * 0.68, 0.503, Math.cos(a) * 0.68); dmy.rotation.set(0, a, 0); dmy.updateMatrix(); ticks.setMatrixAt(i, dmy.matrix); ticks.setColorAt(i, new THREE.Color(0, 0, 0)); }
+      display.add(ticks);
+      const hub = new THREE.Mesh(lathe([[0, 0.5], [0.16, 0.5], [0.16, 0.515], [0.12, 0.53], [0, 0.535]], { segments: 96, fillet: 0.006 }), mat.polishedMetal({ color: "#e2e3e6", roughness: 0.22 }));
+      display.add(hub);
+      const arcMat = new THREE.MeshBasicMaterial({ color: new THREE.Color(0, 0, 0), toneMapped: false });
+      const arcRing = new THREE.Mesh(new THREE.TorusGeometry(0.5, 0.006, 8, 240), arcMat); arcRing.rotation.x = Math.PI / 2; arcRing.position.y = 0.503; display.add(arcRing);
+      // Glasdeckel (Rauchglas mit Dispersion)
+      const glassMesh = new THREE.Mesh(lathe([[0, 0.5], [0.862, 0.5], [0.862, 0.565], [0.845, 0.585], [0, 0.585]], { segments: 200, fillet: 0.01 }),
+        mat.glass({ tint: "#f4f4f6", roughness: 0.02, thickness: 0.12, ior: 1.52, dispersion: 0.35, attenuationColor: "#9a9aa6", attenuationDistance: 0.6 }));
+      glass.add(glassMesh);
+      castAll(product);
+      glassMesh.castShadow = false; ticks.castShadow = false; arcRing.castShadow = false;
+
+      // Schwarm: 135 Segmente fliegen ein und werden zum Drehring
+      const swarm = new Swarm({ geometry: roundedBox(0.035, 0.15, 0.03, 0.01, 2), material: dialMesh.material, count: 135, seed: 11 });
+      swarm.layout("cloud", layouts.scatter(135, [7, 3.5, 5], 4).map((e) => ({ ...e, p: e.p.add(new THREE.Vector3(0, 1.4, 0)) })));
+      swarm.layout("ring", layouts.ring(135, 1.0, { y: 0.49 }).map((e) => ({ ...e, r: new THREE.Euler(0, e.r.y + Math.PI / 2, 0) })));
+      castAll(swarm.mesh); scene.add(swarm.mesh);
+
+      // Glasbänder (Glas mit warmer Tönung), zeichnen sich über drawRange ein
+      const ribMat = mat.glass({ tint: "#ffd2b8", roughness: 0.0, thickness: 0.06, ior: 1.5, dispersion: 0.4, attenuationColor: "#ff6a2a", attenuationDistance: 0.12 });
+      ribMat.side = THREE.DoubleSide; ribMat.specularIntensity = 0.4; ribMat.envMapIntensity = 0.55;
+      const SEG = 360;
+      // Bögen in einer fast senkrechten Ebene: die Bandfläche zeigt zur Kamera (Glas wirkt nur von vorn, flach = Spiegel)
+      const arc = (r, a0, a1, cx, cy, cz, tilt, yaw) => Array.from({ length: 24 }, (_, i) => { const a = THREE.MathUtils.degToRad(lerp(a0, a1, i / 23));
+        const v = new THREE.Vector3(Math.cos(a) * r, Math.sin(a) * r * 0.62, 0).applyEuler(new THREE.Euler(tilt, yaw, 0)); return [v.x + cx, v.y + cy, v.z + cz]; });
+      const rib1 = new THREE.Mesh(ribbon(arc(2.6, 200, 470, 0.2, 0.9, -1.0, -0.35, -0.5), { width: 0.34, segments: SEG, twist: 0, thickness: 0.04 }), ribMat);
+      const rib2 = new THREE.Mesh(ribbon(arc(2.0, -30, 250, -0.3, 1.1, -1.6, 0.25, 0.6), { width: 0.2, segments: SEG, twist: 0, thickness: 0.03 }), ribMat);
+      scene.add(rib1, rib2);
+
+      // Endkarte: 3D-Wort aus gebürstetem Metall (Font vor dem ersten Seek laden)
+      const word = new THREE.Group(); word.position.set(0, 1.25, -0.9); scene.add(word);
+      const letters = [];
+      const ready = loadFont("./vendor/hf3d/fonts/Geist-Bold.ttf").then((font) => {
+        const wm = mat.polishedMetal({ color: "#55575d", roughness: 0.16 });
+        for (const L of extrudeLetters(font, "RONDO", { size: 0.62, depth: 0.2, bevel: 0.018, letterSpacing: 0.06 })) {
+          const m = new THREE.Mesh(L.geometry, wm); m.castShadow = true; m.position.copy(L.offset); word.add(m); letters.push({ m, x: L.offset.x });
+        }
+      });
+
+      // ───── Zeitplan (Sekunden) ─────
+      const S = [0, 1.1, 1.85, 2.6, 3.3, 4.5, 5.2, 6.3, 7.3, 8.2, 9.6];
+      const P = (r, aDeg, y) => [Math.sin((aDeg * Math.PI) / 180) * r, y, Math.cos((aDeg * Math.PI) / 180) * r];
+      const dialEdge = (aDeg) => P(1.0, aDeg, 0.49);
+      const rig = shotRig([
+        // 1 Zündung: Ring leuchtet auf, 3/4 von oben, langsam heran
+        { start: S[0], end: S[1], pos: [P(3.4, 62, 2.5), P(2.6, 36, 1.9), P(2.2, 16, 1.55)], target: [[0.2, 0.4, 0.2], [0, 0.45, 0.1]], lens: 62, roll: [-6, 0], focus: [0, 0.52, 0.75], bokeh: 11, bg: "warm", ease: "out" },
+        // 2 Makro Rändelung: seitliche Fahrt am Rand entlang
+        { start: S[1], end: S[2], pos: (u) => new THREE.Vector3(...P(1.8, lerp(80, 36, u), 1.1)), target: (u) => new THREE.Vector3(...P(1.0, lerp(72, 28, u), 0.53)), lens: 80, bokeh: 22, bg: "cool", ease: "inOut2", envRot: -0.9, exposure: 1.0 },
+        // 3 Draufsicht: Regler dreht, Kamera rollt gegen
+        { start: S[2], end: S[3], pos: [[0.02, 3.6, 0.02], [0.02, 3.25, 0.02]], target: [0, 0.5, 0], lens: 48, roll: [-14, 9], focus: [0, 0.5, 0], bokeh: 6, bg: "warm" },
+        // 4 Tastendruck, flach von der Seite
+        { start: S[3], end: S[4], pos: [P(1.9, 54, 0.42), P(1.75, 44, 0.38)], target: (u) => buttons[0].getWorldPosition(new THREE.Vector3()).add(new THREE.Vector3(0, 0.12, 0)), focus: buttons[0], lens: 70, bokeh: 20, bg: "cool", ease: "sine" },
+        // 5 Explosionszeichnung, Orbit
+        { start: S[4], end: S[5], pos: [P(5.6, 38, 2.1), P(5.4, 10, 1.7), P(5.6, -16, 1.5)], target: [0, 0.95, 0], lens: 42, bokeh: 7, bg: "warm" },
+        // 6 Makro Glaskante (dunkel), Schärfe zieht von der Kante auf die Striche
+        { start: S[5], end: S[6], pos: [P(2.1, 24, 2.75), P(1.9, 12, 2.6)], target: [[0, 1.75, 0.3], [0, 1.7, 0.2]], lens: 60, focus: [P(0.86, 18, 1.99), P(0.68, 10, 1.47)], focusEase: "inOut", bokeh: 22, bg: "dark" },
+        // 7 Zusammenbau: Teile schnappen zusammen, Segmente werden Drehring
+        { start: S[6], end: S[7], pos: [P(3.9, -30, 1.9), P(3.4, -18, 1.5)], target: [[0, 0.75, 0], [0, 0.45, 0]], lens: 55, bokeh: 9, bg: "cool", envRot: 0.8, exposure: 0.8, bloom: 0.08 },
+        // 8 Held mit Glasbändern, flacher Orbit
+        { start: S[7], end: S[8], pos: [P(4.4, -46, 0.8), P(4.1, -14, 0.95)], target: [0, 0.42, 0], lens: 45, focus: [0, 0.4, 0.6], bokeh: 9, bg: "warm", ease: "sine" },
+        // 9 Makro auf die Striche, dann Rückfahrt
+        { start: S[8], end: S[9], pos: [[0, 0.82, 1.18], [0, 1.0, 1.6], [0, 1.5, 2.9]], target: [[0, 0.5, 0.6], [0, 0.48, 0.3], [0, 0.45, 0]], lens: [130, 60], bokeh: [24, 10], bg: "cool", ease: "out" },
+        // 10 Endkarte: Wort steigt hinter dem Produkt auf (≤ 1,4 s)
+        { start: S[9], end: S[10], pos: [[0.0, 1.0, 6.6], [0.0, 1.05, 6.1]], target: [[0, 0.82, 0], [0, 0.86, 0]], lens: 40, focus: [0, 1.3, -0.9], bokeh: 6, bg: "end", ease: "out" },
+      ]);
+
+      // Zustände aus t
+      const explode = (t) => (t < S[4] ? 0 : t < S[6] ? seg(t, S[4] + 0.1, S[5] - 0.15, ease.inOut) : 1 - seg(t, S[6] + 0.02, S[6] + 0.55, (u) => ease.spring(u, 9, 6)));
+      const lit = (t) => (t < S[1] ? seg(t, 0.12, 0.85, ease.inOut) : 1); // Anteil leuchtender Striche
+      const level = (t) => (t < S[2] ? 0.35 : t < S[3] ? lerp(0.35, 0.8, seg(t, S[2] + 0.1, S[3] - 0.1, ease.inOut)) : 0.8); // Bogen = Lautstärke
+      const flash = (t) => Math.exp(-Math.max(0, t - (S[3] + 0.3)) * 9) * (t >= S[3] + 0.3 ? 1 : 0) + Math.exp(-Math.max(0, t - 6.05) * 7) * (t >= 6.05 ? 1.4 : 0);
+      const WARM = new THREE.Color("#ff6a26"), WHITE = new THREE.Color("#fff3ea"), tc = new THREE.Color();
+      let lastBg = "";
+
+      studio.run((t) => {
+        const { shot } = rig.apply(t, studio.camera, studio.post);
+        if (shot.bg !== lastBg) { studio.background.set(BG[shot.bg]); lastBg = shot.bg; }
+        // Licht je Einstellung: Umgebung drehen (wie HDRI drehen) und Belichtung
+        scene.environmentRotation.y = shot.envRot ?? 0; studio.post.o.exposure = shot.exposure ?? 0.88; studio.post.bloom.strength = shot.bloom ?? 0.35;
+        // Regler dreht (Einstellung 2 + 3)
+        dial.rotation.y = -0.25 * seg(t, S[1], S[2], ease.inOut) - 0.9 * seg(t, S[2], S[3], ease.inOut);
+        // Explosion / Zusammenbau
+        const e = explode(t);
+        foot.position.y = -0.3 * e; dial.position.y = 0.55 * e; display.position.y = 0.97 * e; glass.position.y = 1.45 * e;
+        body.rotation.y = 0; glass.rotation.y = 0.25 * e; display.rotation.y = -0.15 * e;
+        // Schwarm nur in Einstellung 7, danach echter Ring
+        const sw = t >= S[6] && t < 6.05; swarm.mesh.visible = sw; dialMesh.visible = !sw;
+        if (sw) swarm.blend("cloud", "ring", seg(t, S[6] - 0.05, 6.05), { stagger: 0.45, arc: 1.2, spin: 1.5, order: "random" });
+        // Tastendruck
+        const press = t >= S[3] ? Math.sin(Math.PI * seg(t, S[3] + 0.22, S[3] + 0.42)) : 0; buttons[0].position.z = 1.0 - 0.025 * press;
+        // Leucht-Striche + Bogen
+        const L = lit(t), lv = level(t), f = flash(t);
+        for (let i = 0; i < NT; i++) {
+          const k = clamp01(L * NT * 1.15 - i * 1.0); const on = i / NT < lv ? 1 : 0.18;
+          tc.copy(i / NT < lv ? WARM : WHITE).multiplyScalar(k * (on * 3.2 + f * 4));
+          ticks.setColorAt(i, tc);
+        }
+        ticks.instanceColor.needsUpdate = true;
+        arcMat.color.copy(WARM).multiplyScalar(L * (1.5 + f * 3));
+        // Glasbänder zeichnen sich ein (nur Held + Endkarte)
+        const rb = t >= S[7] && t < S[8] ? seg(t, S[7], S[7] + 0.8, ease.out) : 0;
+        rib1.visible = rib2.visible = rb > 0;
+        rib1.geometry.setDrawRange(0, Math.floor(rb * SEG) * 12); rib2.geometry.setDrawRange(0, Math.floor(seg(rb, 0.15, 1) * SEG) * 12);
+        // Endkarte: Buchstaben steigen mit Feder auf
+        word.visible = t >= S[9];
+        letters.forEach((l, i) => { const u = seg(t, S[9] + 0.05 + i * 0.07, S[9] + 0.6 + i * 0.07, (x) => ease.spring(x, 8, 6));
+          l.m.position.y = lerp(-1.6, 0, u); l.m.rotation.x = lerp(-0.9, 0, u); });
+        cshadow.material.uniforms.uO.value = 0.4 * (1 - explode(t) * 0.5);
+      }, { ready, cuts: rig.cuts });
+    </script>
+  </body>
+</html>

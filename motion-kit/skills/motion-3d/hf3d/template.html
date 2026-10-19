@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <!-- hf3d-Vorlage: 3 Einstellungen, Metall + Glas, DoF, Verlauf. Installieren: bash <motion-3d>/hf3d/install.sh <hf> -->
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "./vendor/hf3d/three/three.module.min.js",
+          "three/addons/": "./vendor/hf3d/three/addons/",
+          "hf3d": "./vendor/hf3d/hf3d.js"
+        }
+      }
+    </script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1920px; height: 1080px; overflow: hidden; }
+      #root { position: relative; width: 1920px; height: 1080px; overflow: hidden; background: #e9d6c8; }
+      #stage { position: absolute; inset: 0; width: 1920px; height: 1080px; display: block; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-no-timeline data-start="0" data-duration="4" data-width="1920" data-height="1080" data-fps="30">
+      <canvas id="stage" width="1920" height="1080"></canvas>
+    </div>
+    <script type="module">
+      import { THREE, createStudio, shotRig, studioLights, mat, roundedBox, contactShadow, shadowFloor, castAll, seg, ease } from "hf3d";
+
+      const studio = createStudio({
+        canvas: document.getElementById("stage"),
+        env: "studio", envOptions: { tone: "bright" }, envIntensity: 1.0,
+        background: { top: "#f7efe8", bottom: "#e3b294", glow: "#ffffff", glowPos: [0.6, 0.4], glowStrength: 0.5 },
+        post: { dof: { bokeh: 14, maxBlur: 24 }, bloom: { strength: 0.3, threshold: 1.2 }, grain: 0.03, vignette: 0.2 },
+        exposure: 1.0,
+      });
+      const { scene } = studio;
+      studioLights(scene, { target: [0, 0.4, 0] });
+      scene.add(shadowFloor({ opacity: 0.22 }));
+
+      // Produkt aus Grundformen
+      const product = new THREE.Group(); scene.add(product);
+      const body = new THREE.Mesh(roundedBox(2.4, 0.5, 1.4, 0.12, 6), mat.brushedMetal({ color: "#d4d6da", repeat: [1, 6] }));
+      body.position.y = 0.25; product.add(body);
+      const lens = new THREE.Mesh(new THREE.SphereGeometry(0.42, 64, 32), mat.glass({ thickness: 0.8, dispersion: 0.3 }));
+      lens.position.set(0.6, 0.72, 0); product.add(lens); // Glas braucht Struktur dahinter, vor leerem Verlauf ist es unsichtbar
+      const led = new THREE.Mesh(roundedBox(0.5, 0.06, 0.06, 0.02), mat.emissive({ color: "#ff6a2a", intensity: 6 }));
+      led.position.set(-0.6, 0.52, 0.5); product.add(led);
+      castAll(product);
+      const cs = contactShadow({ size: 4, opacity: 0.35 }); cs.position.y = 0.002; scene.add(cs);
+
+      // Shot-Liste: harte Schnitte zwischen den Einträgen, Fahrten innerhalb
+      const rig = shotRig([
+        { start: 0, end: 1.4, pos: [[-0.9, 0.9, 1.6], [-0.3, 0.8, 1.3]], target: [[-0.6, 0.5, 0.5], [-0.2, 0.55, 0.4]], lens: 100, bokeh: 22 },   // Makro
+        { start: 1.4, end: 2.6, pos: [[3.5, 2.2, 4.5], [1.5, 1.8, 5.5], [-1.5, 1.6, 5.2]], target: [0, 0.4, 0], lens: 50, focus: product },         // Fahrt
+        { start: 2.6, end: 4.0, pos: [[2.6, 1.4, 2.6], [2.1, 1.25, 2.2]], target: lens, lens: 70, focus: lens, bokeh: [6, 14] },               // Glas (Ziel = Objekt)
+      ]);
+
+      studio.run((t) => {
+        rig.apply(t, studio.camera, studio.post);
+        product.rotation.y = -0.4 + t * 0.12;
+        led.material.emissiveIntensity = 2 + 6 * seg(t, 0.2, 0.9, ease.out);
+      }, { cuts: rig.cuts }); // cuts: Bewegungsunschärfe mittelt nie über einen Schnitt
+    </script>
+  </body>
+</html>

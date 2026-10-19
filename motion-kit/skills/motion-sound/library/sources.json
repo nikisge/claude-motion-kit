@@ -1,0 +1,430 @@
+[
+ {
+  "prefix": "sfx/kenney/casino-audio/",
+  "source": "Kenney",
+  "author": "Kenney (kenney.nl)",
+  "license": "CC0-1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "url": "https://kenney.nl/assets/casino-audio",
+  "note": "License.txt im Paketordner"
+ },
+ {
+  "prefix": "sfx/kenney/digital-audio/",
+  "source": "Kenney",
+  "author": "Kenney (kenney.nl)",
+  "license": "CC0-1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "url": "https://kenney.nl/assets/digital-audio",
+  "note": "License.txt im Paketordner"
+ },
+ {
+  "prefix": "sfx/kenney/impact-sounds/",
+  "source": "Kenney",
+  "author": "Kenney (kenney.nl)",
+  "license": "CC0-1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "url": "https://kenney.nl/assets/impact-sounds",
+  "note": "License.txt im Paketordner"
+ },
+ {
+  "prefix": "sfx/kenney/interface-sounds/",
+  "source": "Kenney",
+  "author": "Kenney (kenney.nl)",
+  "license": "CC0-1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "url": "https://kenney.nl/assets/interface-sounds",
+  "note": "License.txt im Paketordner"
+ },
+ {
+  "prefix": "sfx/kenney/music-jingles/",
+  "source": "Kenney",
+  "author": "Kenney (kenney.nl)",
+  "license": "CC0-1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "url": "https://kenney.nl/assets/music-jingles",
+  "note": "License.txt im Paketordner"
+ },
+ {
+  "prefix": "sfx/kenney/rpg-audio/",
+  "source": "Kenney",
+  "author": "Kenney (kenney.nl)",
+  "license": "CC0-1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "url": "https://kenney.nl/assets/rpg-audio",
+  "note": "License.txt im Paketordner"
+ },
+ {
+  "prefix": "sfx/kenney/sci-fi-sounds/",
+  "source": "Kenney",
+  "author": "Kenney (kenney.nl)",
+  "license": "CC0-1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "url": "https://kenney.nl/assets/sci-fi-sounds",
+  "note": "License.txt im Paketordner"
+ },
+ {
+  "prefix": "sfx/kenney/ui-audio/",
+  "source": "Kenney",
+  "author": "Kenney (kenney.nl)",
+  "license": "CC0-1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "url": "https://kenney.nl/assets/ui-audio",
+  "note": "License.txt im Paketordner"
+ },
+ {
+  "prefix": "sfx/hyperframes-pixabay/",
+  "source": "Pixabay, gebündelt im HyperFrames-Repo (skills/hyperframes/…/sfx)",
+  "author": "Pixabay-Urheber (siehe CREDITS.md)",
+  "license": "Pixabay Content License",
+  "license_url": "https://pixabay.com/service/license-summary/",
+  "url": "https://pixabay.com/sound-effects/",
+  "note": "Kommerziell frei, ohne Namensnennung; nicht als eigenständige Sound-Datei weiterverkaufen/verbreiten.",
+  "files": {
+   "chime.mp3": {
+    "description": "Weicher melodischer Klang: Erfolg/Bestätigung oder leichter Übergang"
+   },
+   "click-soft.mp3": {
+    "description": "Leiser kurzer Klick: dezenter UI-Tap, weiche Auswahl"
+   },
+   "click.mp3": {
+    "description": "Knackiger UI-Klick: Button, Toggle, Auswahl"
+   },
+   "error.mp3": {
+    "description": "Negativer Fehlerton: falsch, Abbruch, glitchige Unterbrechung"
+   },
+   "glitch-1.mp3": {
+    "description": "Kräftiger Digital-Glitch: harter Schnitt-Akzent, plötzlicher Reveal; Ausklang läuft in nächste Einstellung"
+   },
+   "glitch-2.mp3": {
+    "description": "Harter langer Glitch: chaotischer Übergang, verzerrter Reveal"
+   },
+   "glitch-3.mp3": {
+    "description": "Leise Glitch-Textur: subtile digitale Verschiebung unter anderem Ton"
+   },
+   "impact-bass-1.mp3": {
+    "description": "Bass-Einschlag: Logo/Held landet, Headline-Slam"
+   },
+   "impact-bass-2.mp3": {
+    "description": "Bass-Einschlag mit kurzem Anschwellen: Spitze auf den Reveal legen"
+   },
+   "key-press.mp3": {
+    "description": "Einzelner Tastenanschlag: ein Zeichen, Terminal-Eingabe"
+   },
+   "notification.mp3": {
+    "description": "Benachrichtigungs-Klang: Toast/Badge/Nachricht erscheint"
+   },
+   "ping.mp3": {
+    "description": "Scharfer elektronischer Ping: Akzent auf Zahl oder Datenpunkt"
+   },
+   "pop.mp3": {
+    "description": "Schneller Pop: Element erscheint, Chip/Tag springt rein"
+   },
+   "riser.mp3": {
+    "description": "Langer Kino-Riser (~10 s, Spitze am Ende): bei Reveal-Zeit minus 10,03 s starten (align end)"
+   },
+   "sparkle.mp3": {
+    "description": "Heller Glitzer/Schimmer: magischer Reveal, Glanz auf Held-Element"
+   },
+   "typing.mp3": {
+    "description": "Tipp-Salve (~1,5 s): Text/Code tippt sich"
+   },
+   "whoosh-cinematic.mp3": {
+    "description": "Kino-Whoosh mit Aufbau (~5,5 s): großer Szenenwechsel, Anschwellen endet auf dem Schnitt"
+   },
+   "whoosh-short.mp3": {
+    "description": "Kurzer Whoosh: schneller Wisch, Element gleitet"
+   },
+   "whoosh.mp3": {
+    "description": "Kräftiger Whoosh mit Schlag: schneller Reveal, harter Übergang"
+   }
+  }
+ },
+ {
+  "prefix": "sfx/remotion-cc0/",
+  "source": "Remotion SFX (@remotion/sfx)",
+  "author": "Remotion (je Sound als CC0 ausgewiesen)",
+  "license": "CC0-1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "url": "https://www.remotion.dev/docs/sfx",
+  "note": "Nur die 7 Sounds, deren Doku-Seite 'Creative Commons 0' nennt; Meme-Sounds bewusst nicht übernommen.",
+  "files": {
+   "whip.wav": {
+    "description": "Peitschen-Whip: sehr schneller Schwung",
+    "url": "https://www.remotion.dev/docs/sfx/whip"
+   },
+   "whoosh.wav": {
+    "description": "Whoosh: Luftzug für Bewegung",
+    "url": "https://www.remotion.dev/docs/sfx/whoosh"
+   },
+   "page-turn.wav": {
+    "description": "Seite umblättern",
+    "url": "https://www.remotion.dev/docs/sfx/page-turn"
+   },
+   "mouse-click.wav": {
+    "description": "Mausklick",
+    "url": "https://www.remotion.dev/docs/sfx/mouse-click"
+   },
+   "shutter-modern.wav": {
+    "description": "Kamera-Auslöser modern (Screenshot-Moment)",
+    "url": "https://www.remotion.dev/docs/sfx/shutter-modern"
+   },
+   "shutter-old.wav": {
+    "description": "Kamera-Auslöser analog",
+    "url": "https://www.remotion.dev/docs/sfx/shutter-old"
+   },
+   "switch.wav": {
+    "description": "Schalter umlegen",
+    "url": "https://www.remotion.dev/docs/sfx/switch"
+   }
+  }
+ },
+ {
+  "prefix": "sfx/oga-cc0/100-cc0-sfx/",
+  "source": "OpenGameArt",
+  "author": "rubberduck",
+  "license": "CC0-1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "url": "https://opengameart.org/content/100-cc0-sfx"
+ },
+ {
+  "prefix": "sfx/oga-cc0/book-flips/",
+  "source": "OpenGameArt",
+  "author": "StarNinjas",
+  "license": "CC0-1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "url": "https://opengameart.org/content/10-book-page-flips"
+ },
+ {
+  "prefix": "sfx/oga-cc0/bookflip-sfx/",
+  "source": "OpenGameArt",
+  "author": "Voltiment555",
+  "license": "CC0-1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "url": "https://opengameart.org/content/book-flip-sounds"
+ },
+ {
+  "prefix": "sfx/oga-cc0/ding/",
+  "source": "OpenGameArt",
+  "author": "StarNinjas",
+  "license": "CC0-1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "url": "https://opengameart.org/content/4-metal-dingsrings"
+ },
+ {
+  "prefix": "sfx/oga-cc0/sfx-breaking-and-falling/",
+  "source": "OpenGameArt",
+  "author": "rubberduck",
+  "license": "CC0-1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "url": "https://opengameart.org/content/75-cc0-breaking-falling-hit-sfx"
+ },
+ {
+  "prefix": "sfx/oga-cc0/swishes/",
+  "source": "OpenGameArt",
+  "author": "artisticdude",
+  "license": "CC0-1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "url": "https://opengameart.org/content/swishes-sound-pack"
+ },
+ {
+  "prefix": "sfx/oga-cc0/misc/air-whoosh",
+  "source": "OpenGameArt",
+  "author": "pyranostudios",
+  "license": "CC0-1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "url": "https://opengameart.org/content/air-whoosh"
+ },
+ {
+  "prefix": "sfx/oga-cc0/misc/map-",
+  "source": "OpenGameArt",
+  "author": "Spring Spring",
+  "license": "CC0-1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "url": "https://opengameart.org/content/opening-and-closing-a-map-sounds"
+ },
+ {
+  "prefix": "sfx/oga-cc0/misc/equipment-clicks",
+  "source": "OpenGameArt",
+  "author": "LFA",
+  "license": "CC0-1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "url": "https://opengameart.org/content/equipment-clicks-ii"
+ },
+ {
+  "prefix": "sfx/oga-cc0/misc/bell-ding",
+  "source": "OpenGameArt",
+  "author": "PWL",
+  "license": "CC0-1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "url": "https://opengameart.org/content/bell-dingschimes"
+ },
+ {
+  "prefix": "sfx/oga-cc0/100-cc0-sfx/toilet",
+  "exclude": true,
+  "license": "CC0-1.0"
+ },
+ {
+  "prefix": "sfx/oga-cc0/100-cc0-sfx/microwave",
+  "exclude": true,
+  "license": "CC0-1.0"
+ },
+ {
+  "prefix": "sfx/oga-cc0/100-cc0-sfx/dishes",
+  "exclude": true,
+  "license": "CC0-1.0"
+ },
+ {
+  "prefix": "music/",
+  "source": "Internet Archive (archive.org), Item-Lizenz CC0 geprüft 11.10.2026",
+  "author": null,
+  "license": "CC0-1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "url": "https://archive.org",
+  "note": "Stimmung nach Album/Titel + Messung (Lautheitsverlauf); vor Einsatz anhören.",
+  "files": {
+   "ambient-hope-komiku.mp3": {
+    "title": "Ambiant Hope",
+    "artist": "Komiku",
+    "url": "https://archive.org/details/monplaisirchillandambiantsongsfrommonplaisirciesprojectsundercreativecommons0andpublicdomain",
+    "mood": "ruhig, hoffnungsvoll, baut langsam auf",
+    "use": "Erklärer, ruhige Produktgeschichte, Outro; Aufbau ab ~50 %",
+    "tags": [
+     "ruhig",
+     "hoffnungsvoll",
+     "baut",
+     "langsam"
+    ]
+   },
+   "lofi-sugar-and-coffee.mp3": {
+    "title": "Sugar and coffee",
+    "artist": "Loyalty Freak Music / Lack of Color",
+    "url": "https://archive.org/details/loyalty-freak-music-lofi-ambient-songs",
+    "mood": "lofi, warm, entspannt",
+    "use": "Whiteboard-Erklärer, Storyboard/Skizze, Behind the Scenes",
+    "tags": [
+     "lofi",
+     "warm",
+     "entspannt"
+    ]
+   },
+   "lofi-aeroplane.mp3": {
+    "title": "Aeroplane",
+    "artist": "Loyalty Freak Music / Lack of Color",
+    "url": "https://archive.org/details/loyalty-freak-music-lofi-ambient-songs",
+    "mood": "lofi, verträumt, leicht",
+    "use": "YouTube-Einblendung unter Stimme, ruhige Prozess-Story",
+    "tags": [
+     "lofi",
+     "verträumt",
+     "leicht"
+    ]
+   },
+   "calm-softly.mp3": {
+    "title": "Softly",
+    "artist": "Loyalty Freak Music",
+    "url": "https://archive.org/details/LoyaltyFreakMusicMELODIESWITHABEAT2018030251947223",
+    "mood": "ruhig, sanft, gleichmäßig (kaum Dynamik)",
+    "use": "Bett unter Stimme, Clean-SaaS hell, lange Haltezeiten",
+    "tags": [
+     "ruhig",
+     "sanft",
+     "gleichmäßig",
+     "(kaum",
+     "Dynamik)"
+    ]
+   },
+   "beat-work.mp3": {
+    "title": "Work",
+    "artist": "Loyalty Freak Music",
+    "url": "https://archive.org/details/LoyaltyFreakMusicMELODIESWITHABEAT2018030251947223",
+    "mood": "mittel, elektronischer Beat, konzentriert",
+    "use": "Feature-Erklärer, Produkt-Demo, Clean-SaaS",
+    "tags": [
+     "mittel",
+     "elektronischer",
+     "Beat",
+     "konzentriert"
+    ]
+   },
+   "drive-free-to-use-1.mp3": {
+    "title": "Free To Use 1",
+    "artist": "Monplaisir",
+    "url": "https://archive.org/details/Monplaisir-FreeToUse",
+    "mood": "treibend, energisch, mit Aufbau (große Dynamik)",
+    "use": "Launchfilm, Kinetic Type, Showreel; Höhepunkt Mitte",
+    "tags": [
+     "treibend",
+     "energisch",
+     "Aufbau",
+     "(große",
+     "Dynamik)"
+    ]
+   },
+   "rise-sky-5.mp3": {
+    "title": "Sky 5 (The Rise, The Walk, The Hope)",
+    "artist": "Monplaisir",
+    "url": "https://archive.org/details/monplaisirchillandambiantsongsfrommonplaisirciesprojectsundercreativecommons0andpublicdomain",
+    "mood": "aufsteigend, optimistisch, steigert sich bis zum Ende",
+    "use": "Apple-Premium, Reveal-Finale, Endkarte",
+    "tags": [
+     "aufsteigend",
+     "optimistisch",
+     "steigert",
+     "sich",
+     "Ende"
+    ]
+   },
+   "playful-shoepop.mp3": {
+    "title": "Shoepop",
+    "artist": "Loyalty Freak Music",
+    "url": "https://archive.org/details/LoyaltyFreakMusicMELODIESWITHABEAT2018030251947223",
+    "mood": "verspielt, poppig, große Dynamik",
+    "use": "Social/vertikal, verspielte Feature-Clips",
+    "tags": [
+     "verspielt",
+     "poppig",
+     "große",
+     "Dynamik"
+    ]
+   },
+   "playful-awkward-cute-dance.mp3": {
+    "title": "Awkward cute dance",
+    "artist": "Komiku",
+    "url": "https://archive.org/details/komiku-the-adventure-goes-on-vol.-2",
+    "mood": "verspielt, schräg, niedlich",
+    "use": "Maskottchen, Voxel/Spielzeug-Welt, humorvolle Momente",
+    "tags": [
+     "verspielt",
+     "schräg",
+     "niedlich"
+    ]
+   },
+   "tension-intense-fight.mp3": {
+    "title": "Intense fight",
+    "artist": "Komiku",
+    "url": "https://archive.org/details/komiku-the-adventure-goes-on-vol.-2",
+    "mood": "spannend, drängend, hell",
+    "use": "Problem-Akt, Countdown, Vorher/Nachher-Druck",
+    "tags": [
+     "spannend",
+     "drängend",
+     "hell"
+    ]
+   },
+   "tech-high-technologic.mp3": {
+    "title": "High Technologic Beat Explosion",
+    "artist": "Loyalty Freak Music",
+    "url": "https://archive.org/details/LoyaltyFreakMusicROBOTDANCE2017113032423755",
+    "mood": "elektronisch, technisch, pulsierend; leiser Anfang",
+    "use": "3D-Objekt-Story, Tech-Showcase, Glitch-Momente",
+    "tags": [
+     "elektronisch",
+     "technisch",
+     "pulsierend;",
+     "leiser",
+     "Anfang"
+    ]
+   }
+  }
+ }
+]

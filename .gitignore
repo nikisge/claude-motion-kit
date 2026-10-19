@@ -1,0 +1,11 @@
+# Referenzclips gehören ihren Urhebern: nie committen
+refs/clips/
+refs/study/
+refs/.cache/
+sound/
+projects/*/renders/
+*.mov
+*.mp4
+!docs/**/*.mp4
+__pycache__/
+.DS_Store

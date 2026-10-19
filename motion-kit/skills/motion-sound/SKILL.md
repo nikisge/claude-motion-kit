@@ -1,6 +1,6 @@
 ---
 name: motion-sound
-description: Use when a motion graphics film, animation or video insert needs sound (music choice, sound effects, cue list, ducking, loudness master) or when sounds are added to the local sound library. Trigger words: Sound, Ton, Musik, SFX, Geräusch, Whoosh, Cue-Liste, Mischung, LUFS.
+description: "Use when a motion graphics film, animation or video insert needs sound (music choice, sound effects, cue list, ducking, loudness master) or when sounds are added to the local sound library. Trigger words: Sound, Ton, Musik, SFX, Geräusch, Whoosh, Cue-Liste, Mischung, LUFS."
 ---
 
 # Motion Sound: Sound-Designer

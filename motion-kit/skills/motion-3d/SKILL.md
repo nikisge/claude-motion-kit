@@ -1,6 +1,6 @@
 ---
 name: motion-3d
-description: Use when a motion graphics piece needs real 3D (product shot, metal, glass, depth of field, macro, object that transforms or assembles, camera shot list) in HyperFrames via Three.js, or when 3D models should come from Blender (Blender MCP, headless Blender, glTF/GLB export). Trigger words: 3D, Produktfilm, Metall, Glas, Tiefenunschärfe, Bokeh, Three.js, Blender, GLB.
+description: "Use when a motion graphics piece needs real 3D (product shot, metal, glass, depth of field, macro, object that transforms or assembles, camera shot list) in HyperFrames via Three.js, or when 3D models should come from Blender (Blender MCP, headless Blender, glTF/GLB export). Trigger words: 3D, Produktfilm, Metall, Glas, Tiefenunschärfe, Bokeh, Three.js, Blender, GLB."
 ---
 
 # Motion 3D: echtes 3D in HyperFrames (+ Blender als Modell-Quelle)

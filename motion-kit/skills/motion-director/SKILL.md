@@ -1,6 +1,6 @@
 ---
 name: motion-director
-description: Use when making or revising any motion graphics piece (launch film, explainer animation, YouTube insert, whiteboard graphic, social/vertical clip, showreel, one-shot showcase) and before writing scene code; also when a motion piece looks like slides, a website or generic AI output, or feels static or slow. Trigger words: Motion Graphics, Animation, Launchvideo, Erklärvideo, Einblendung, Showcase, Stil, "wie ein Motion Designer".
+description: "Use when making or revising any motion graphics piece (launch film, explainer animation, YouTube insert, whiteboard graphic, social/vertical clip, showreel, one-shot showcase) and before writing scene code; also when a motion piece looks like slides, a website or generic AI output, or feels static or slow. Trigger words: Motion Graphics, Animation, Launchvideo, Erklärvideo, Einblendung, Showcase, Stil, \"wie ein Motion Designer\"."
 ---
 
 # Motion Director: arbeiten wie ein Motion Designer

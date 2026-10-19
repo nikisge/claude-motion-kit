@@ -1,6 +1,6 @@
 ---
 name: motion-hyperframes
-description: Use when building, checking or rendering a motion graphics film, style frame or animatic in HyperFrames (HTML/GSAP/SVG/Three.js compositions), when setting up a HyperFrames project, or when a HyperFrames render shows banding, wrong colours, black backgrounds, missing frames or missing motion blur.
+description: "Use when building, checking or rendering a motion graphics film, style frame or animatic in HyperFrames (HTML/GSAP/SVG/Three.js compositions), when setting up a HyperFrames project, or when a HyperFrames render shows banding, wrong colours, black backgrounds, missing frames or missing motion blur."
 ---
 
 # Motion HyperFrames: Bau-Modul

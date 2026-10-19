@@ -1,6 +1,6 @@
 ---
 name: motion-inspo
-description: Use when a motion graphics piece needs references or inspiration (launch videos, styles, camera moves), when a reference clip should be downloaded, studied or measured, or when a render is to be compared against a reference or checked for slide/slop patterns. Trigger words: Inspo, Referenz, whatships, Launchvideo-Beispiele, Stil finden, ref_metrics, motion_check, Kontaktbogen.
+description: "Use when a motion graphics piece needs references or inspiration (launch videos, styles, camera moves), when a reference clip should be downloaded, studied or measured, or when a render is to be compared against a reference or checked for slide/slop patterns. Trigger words: Inspo, Referenz, whatships, Launchvideo-Beispiele, Stil finden, ref_metrics, motion_check, Kontaktbogen."
 ---
 
 # Motion Inspo: Referenzen finden, zerlegen, messen

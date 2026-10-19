@@ -59,24 +59,34 @@ Weitere Skills mit anderen Stilen, Inspo-Seiten und Blender: [`RESOURCES.md`](RE
 
 ## Installieren
 
-Als Claude-Code-Plugin:
+Der einfachste Weg: Sag es deinem Coding-Agenten (Claude Code, Codex, Cursor …). Kopier diesen Satz in den Chat:
 
-```bash
-claude plugin marketplace add nikisge/claude-motion-kit
-claude plugin install motion-kit@claude-motion-kit
+```
+Installiere mir https://github.com/nikisge/claude-motion-kit nach der Anleitung "Für Agenten" in der README.
 ```
 
-Oder die Ordner aus `motion-kit/skills/` nach `~/.claude/skills/` kopieren.
+**HyperFrames ist nicht in diesem Repo.** HyperFrames ist die Render-Engine von HeyGen (npm-Paket + eigene Skills) und
+wird extern installiert. Dieses Kit ist die Schicht darüber: Prozess, Stile, Referenzen und Prüfwerkzeuge. Der Skill
+`motion-hyperframes` zeigt dem Agenten nur, wie er HyperFrames dafür benutzt.
 
-Dazu die HyperFrames-Skills von HeyGen:
+### Für Agenten
 
-```bash
-claude plugin marketplace add heygen-com/hyperframes
-claude plugin install hyperframes@hyperframes
-```
+1. Voraussetzungen prüfen und fehlende nennen (nicht ungefragt systemweit installieren): Node 22+, `ffmpeg`,
+   Python 3.10+, `uv`.
+2. HyperFrames-Skills installieren:
+   - Claude Code: `claude plugin marketplace add heygen-com/hyperframes` und `claude plugin install hyperframes@hyperframes`
+   - andere Agenten: `npx hyperframes skills update`
+3. Dieses Kit installieren:
+   - Claude Code: `claude plugin marketplace add nikisge/claude-motion-kit` und
+     `claude plugin install motion-kit@claude-motion-kit`
+   - andere Agenten: `npx skills add nikisge/claude-motion-kit --all` (installiert die 5 Skills aus
+     `motion-kit/skills/` in den Skill-Ordner des Agenten)
+4. Prüfen: Die Skills `motion-director`, `motion-inspo`, `motion-hyperframes`, `motion-3d` und `motion-sound` sind
+   verfügbar (bei Claude Code nach einem Neustart der Sitzung).
+5. Dem Nutzer kurz sagen, was installiert wurde, und einen Beispiel-Prompt aus „Loslegen“ vorschlagen.
 
-Voraussetzungen: Node 22+, `ffmpeg`, Python 3.10+, [`uv`](https://docs.astral.sh/uv/). Die Text-Prüfungen in
-`motion_check.py` nutzen macOS-OCR. Auf Linux/Windows laufen nur die Bild- und Zeitprüfungen.
+Hinweise: Die Text-Prüfungen in `motion_check.py` nutzen macOS-OCR, auf Linux/Windows laufen nur die Bild- und
+Zeitprüfungen. Blender ist optional (Skill `motion-3d`) und wird nur auf ausdrücklichen Wunsch eingerichtet.
 
 ## Loslegen
 

@@ -9,13 +9,12 @@ baue dann den Index. `sources.json` liefert dabei die Lizenzspalte.
 Index oder mit Lizenz `UNBEKANNT`. Neue Quellen: erst Lizenz auf der Originalseite prüfen, Eintrag in
 `sources.json`, dann `uv run motion-sound/scripts/sound_index.py`.
 
-## Bestand im Originalprojekt (854 Dateien nach Duplikat-Bereinigung, ~106 MB)
+## Bestand im Originalprojekt (847 Dateien nach Duplikat-Bereinigung, ~105 MB)
 
 | Ordner | Dateien | Quelle | Urheber | Lizenz |
 |---|---|---|---|---|
 | `sfx/kenney/` (8 Pakete: casino, digital, impact, interface, music-jingles, rpg, sci-fi, ui) | 604 | kenney.nl/assets/&lt;paket&gt; | Kenney | CC0 1.0 (`License.txt` je Paket) |
 | `sfx/hyperframes-pixabay/` | 17 (+2 Duplikate) | Pixabay, gebündelt im HyperFrames-Repo | Pixabay-Urheber, siehe `CREDITS.md` | Pixabay Content License |
-| `sfx/remotion-cc0/` | 7 | remotion.dev/docs/sfx/&lt;name&gt; | Remotion | CC0 (je Doku-Seite ausgewiesen) |
 | `sfx/oga-cc0/100-cc0-sfx/` | 97 (Haushaltsgeräusche Toilette/Mikrowelle/Geschirr vom Index ausgenommen) | opengameart.org/content/100-cc0-sfx | rubberduck | CC0 |
 | `sfx/oga-cc0/sfx-breaking-and-falling/` | 75 | opengameart.org/content/75-cc0-breaking-falling-hit-sfx | rubberduck | CC0 |
 | `sfx/oga-cc0/swishes/` | 13 | opengameart.org/content/swishes-sound-pack | artisticdude | CC0 |
@@ -50,6 +49,13 @@ nicht streng; abgelehnt wurden u. a. „writing scribbles" (CC-BY-SA) und „pap
 Links: `https://archive.org/details/<item>`. BPM per librosa gemessen, Halb-/Doppeltempo möglich; Stimmungen sind **nicht per Ohr geprüft** (der Agent hört nicht):
 vor dem Einsatz anhören, ggf. in `sources.json` korrigieren (`mood`, `bpm` überschreiben die Messung).
 
+## Echte Einzelaufnahmen über Openverse (ab 11/2026)
+
+Für zarte, reale Geräusche, die weder die Pakete noch Text-zu-Audio-Modelle können (Federkiel auf Papier,
+Reißverschluss, Holzknarzen): [openverse.org](https://openverse.org) durchsucht u. a. Freesound ohne Konto. Nur Treffer
+mit **CC0** nehmen (CC-BY nur, wenn du die Namensnennung in die Videobeschreibung schreibst). Je Datei Titel, Urheber,
+Quell-ID und Lizenz in `sources.json` eintragen (Ordner z. B. `sfx/openverse-cc0/`), dann den Index neu bauen.
+
 ## Pixabay Content License: was zu beachten ist
 
 Kommerziell frei, ohne Namensnennung, auch in bearbeiteter Form im Video. Nicht erlaubt: die Sounds **eigenständig**
@@ -64,7 +70,6 @@ Duplikate im Upstream-Paket: `whoosh.mp3` = `whoosh-short.mp3`, `click.mp3` = `c
 | Freesound.org | Download nur mit Konto/OAuth; Lizenzen je Sound gemischt (viel CC-BY/CC-BY-NC) |
 | Pixabay Musik/SFX direkt | keine API für Audio, Bot-Sperre; Konto nötig |
 | Sonniss GDC-Bundles | sehr groß (>20 GB), Lizenz verbietet Nutzung für KI-Training, eigene AGB |
-| Remotion-Meme-Sounds (vine boom, bruh …) | Rechte unklar, nicht als CC0 ausgewiesen |
 | Incompetech (Kevin MacLeod) | CC-BY: Namensnennung in jeder Beschreibung nötig; vermeidbar |
 | YouTube Audio Library | nur über Studio-Konto, Lizenz an YouTube gebunden |
-| Selbst synthetisierter Soundtrack im Code | Regel: nie (klingt billig); Sounds kommen aus der Bibliothek |
+| Selbst synthetisierter Soundtrack im Code | Regel: nie (klingt billig); Sounds kommen aus der Bibliothek. Ausnahme: geprüfte Einzelsounds aus der Earshot-Bank (siehe SKILL.md) |

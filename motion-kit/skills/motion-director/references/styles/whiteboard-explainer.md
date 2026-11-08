@@ -1,8 +1,8 @@
 # Stilkarte: Whiteboard-Erklärer (YouTube-Einblendungen, Excalidraw-artig)
 
 **Wann wählen:** Einblendungen in YouTube-Videos neben oder statt der Kamera: Abläufe, Architekturen,
-Vergleiche, „wie funktioniert das". Auch Erklär-Animationen bis ~60 s. Eigener Stil für seinen Kanal
-(Feedback 11.10.: „Erklärgrafik/Whiteboard-Stil (Excalidraw-artig) für seine YouTube-Einblendungen").
+Vergleiche, „wie funktioniert das". Auch Erklär-Animationen bis ~60 s. Für längere, erzählte Erklärfilme mit
+Maßstabssprüngen passt eher [papierschnitt-erklaerer](papierschnitt-erklaerer.md).
 
 **Bildidee:** Eine Skizze, die sich während des Sprechens selbst zeichnet. Hand-gezeichnete Kästen, Pfeile, Kritzel,
 eine Schrift wie mit Filzstift. Ein Element nach dem anderen, genau dann, wenn es gesagt wird. Am Ende steht ein
@@ -79,3 +79,10 @@ Radierer-Wischen. Keine Musik-Hits über der Stimme; Stimme hat Vorrang (Musik �
 - **Hell Papier** (Standard) · **dunkle Tafel** mit Kreide-Strich (für dunkle Videos) · **Rasterpapier** (simi 0:27).
 - Mischen: Storyboard/Skizze (echte Fotos auf der Skizze), Clean SaaS (echter Screenshot wird in die Skizze geklebt).
 - Eigenes: eigene Excalidraw-Boards als Ausgangsmaterial nachzeichnen lassen.
+
+## Abgenommen
+
+- 10/2026: eine HTML-Vergleichsseite (Excalifont + rough.js, Striche erscheinen per Tastendruck) als Einblendung in einem
+  YouTube-Video. Der Stil trägt auch als Folie, solange jedes Element zu seinem Wort kommt.
+- 11/2026: Die eigene Metapher des Sprechers (z. B. eine Burg für Sicherheit) als Whiteboard funktioniert, wenn sie jeden
+  Punkt mitgeht. Vorher fachlich prüfen: Eine Grafik darf keine ungenaue Aussage verstärken.

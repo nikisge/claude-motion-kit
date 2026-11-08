@@ -1,6 +1,6 @@
 # Formate: was je Auftragstyp anders ist
 
-Gemeinsam für alle: Brief, Stil, Storyboard-Vertrag, Prüfregeln, Critic (siehe SKILL.md). Hier nur das Spezifische.
+Gemeinsam für alle: Brief, Stil, Storyboard-Vertrag, Prüfregeln (siehe SKILL.md). Hier nur das Spezifische.
 
 ## Launchfilm (X, 30–45 s, 16:9)
 
@@ -82,13 +82,13 @@ UI ist echt (Frontend per Playwright @2x oder Kunden-Screenshots), Daten nie erf
   nur als geplante Stille.
 - **Dichte wie die Ziel-Referenz**: Einstellungen, Makros und Kamerafahrten nach `ref_metrics` der Ziel-Referenz
   (Produkt-3D: Kimi-3, ~5 neue Ansichten je 10 s, Kamera steht < 30 %), 3D über Skill `motion-3d`.
-- Ablauf im One-Shot-Modus (SKILL.md): Ideen-Runde, Critic vor dem Animieren und am Ende, Schwellen „Showcase" in
-  `critic.md`.
+- Ablauf im One-Shot-Modus (SKILL.md): Ideen-Runde, optional Critic vor dem Animieren und am Ende (Schwellen
+  „Showcase" in `critic.md`).
 
 ## Export (alle)
 
 - Master: MOV (verlustfreie Bilder) → 10 Bit H.264/HEVC + feines Korn gegen Banding (Befehle in
   `motion-hyperframes`). Prüfen: `ffprobe` Dauer/fps = Brief.
 - Lieferung: MP4 1080p hohe Bitrate je Format; Ton −14 LUFS, ≤ −1 dBTP (`motion-sound`).
-- Abgabe-Ordner: `renders/` (gitignored), `check/` (motion_check, Kontaktbögen, Critic-Berichte), `brief.md`,
-  `storyboard.md`, `cues.json`.
+- Abgabe-Ordner: `renders/` (gitignored), `check/` (motion_check, Kontaktbögen, Prüfberichte), `brief.md`,
+  `storyboard.md`, `cues.json`, `ledger.md` (Credits je Generierung, falls Higgsfield).

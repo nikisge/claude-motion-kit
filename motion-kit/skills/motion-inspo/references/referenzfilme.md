@@ -1,6 +1,6 @@
 # Referenzfilme nach Stil
 
-Kuratierte Sammlung aus einem echten Projekt (Stand Oktober 2026). **Nur Links**: Die Videos gehören ihren Urhebern.
+Kuratierte Sammlung aus echten Projekten (Stand Oktober 2026, ergänzt November 2026). **Nur Links**: Die Videos gehören ihren Urhebern.
 Zum Studieren lokal laden (`python3 scripts/refs.py get <link> --name <slug>`), nie neu hochladen oder weiterverbreiten.
 
 „gemacht von“: ai = mit KI-Agent gebaut, designer/studio = von Menschen, unbekannt = nicht belegt.
@@ -90,3 +90,18 @@ Zum Studieren lokal laden (`python3 scripts/refs.py get <link> --name <slug>`), 
 | [pdoom](https://x.com/i/status/2104029135790072196) | threejs | ai | Dunkles generatives Musikvideo mit Karaoke-Typo (Opus 5.5). |
 | [mvsm-moncler-gilga-farm](https://vimeo.com/1142037205) | ManvsMachine | studio | ManvsMachine-Modefilm Moncler, dunkle Bildwelt und Kamerabewegung. |
 | [ordinaryfolk-volcano](https://vimeo.com/1156663409) | Ordinary Folk | studio | Ordinary-Folk-Film Volcano, kurz und atmosphärisch. |
+
+## Doku, gestaltete Welt, 3D-Welt, Maßstabsreise (ergänzt 11/2026)
+
+Leitreferenzen der Stilkarten `doku-archiv`, `gestaltete-welt`, `3d-welt` und `papierschnitt-erklaerer`.
+
+| Slug | Von | gemacht von | Was man lernt |
+|---|---|---|---|
+| [zane-hoyer-doku](https://youtu.be/e2Fykz51Nxg) | Zane Hoyer | ai | Doku-Intro als eine Fahrt über Karte und Abzüge; Stille vor dem Treffer, ein Ton je Bildereignis. |
+| [simplicissimus-mathe](https://youtu.be/CDXIZqPA_aA) | Simplicissimus | studio | Nur als Ton-Referenz: Papier-Whoosh, Bett-Dynamik unter der Erzählung. |
+| [kurzgesagt-ai-slop](https://www.youtube.com/watch?v=_zfN9wnPvU0) | Kurzgesagt | studio | Kalte Welt mit einem warmen Element, Planetenrand, Hineinfahrt mit Parallaxe. |
+| [aha-take-on-me](https://www.youtube.com/watch?v=djV11Xbc914) | a-ha / Steve Barron | studio | Übergang echte Welt → gezeichnete Welt als Geste. |
+| [higgsfield-ink](https://x.com/higgsfield_ai/status/2111523780598419923) | Higgsfield | ai | Eine Figur, eine Reise, eine Wolke schluckt alles, dann Licht. |
+| [higgsfield-island](https://x.com/higgsfield_ai/status/2111509918490755394) | Higgsfield | ai | Schwebende Insel, gestaffeltes Auftauchen, Licht-Ereignis als Höhepunkt. Pipeline nicht belegt. |
+| [leonlin-halo-clouds](https://x.com/LexnLin/status/2117230395406364857) | Leon Lin | ai | Three.js-Szene über dem Wolkenmeer, ruhige Kamera, lizenzierte Musik. |
+| [leonlin-mascot](https://x.com/LexnLin/status/2110389810258968965) | Leon Lin | ai | Film ohne Text aus eigenem Three.js-Renderer, echte freie Sounds. |

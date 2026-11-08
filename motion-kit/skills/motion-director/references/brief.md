@@ -10,7 +10,9 @@ und begründest jede Entscheidung in einem Halbsatz.
   Showcase · Standardprozess | One-Shot | schlank
 - **Ideen-Runde (nur One-Shot/Showcase):** 5 Story-Ideen je 1 Satz; gestrichen: die erste, alle mit Fach-Werkzeug
   als Held; gewählt + warum.
-- **Das Versprechen (1 Satz):** was der Zuschauer danach glaubt. Nicht was das Produkt ist.
+- **Das Versprechen (1 Satz):** „Danach weiß/fühlt der Zuschauer: …“. Nicht was das Produkt ist.
+- **Story (bei erzählten Formaten):** steht vor dem Storyboard fest und wird vom Nutzer gewählt, nicht vom Agenten
+  erfunden. Der Agent hat Freiheit bei Shots und Umsetzung, nicht bei Story und Inspo.
 - **Der eine Gedanke (Bild):** das Bild, an das man sich morgen erinnert (z. B. „der Fehlercode fliegt in die Frage").
 - **Zielgefühl (3 Wörter):** z. B. ruhig, präzise, warm.
 - **Publikum + Plattform:** wer, wo (X, YouTube neben Kamera, Reels), stumm oder mit Ton?
@@ -24,8 +26,11 @@ und begründest jede Entscheidung in einem Halbsatz.
 - **Text auf dem Bild:** welche einzelnen Wörter/Zahlen erlaubt sind; Lesezeit (rules.md).
 - **Ton-Rolle:** Musik führt / trägt / keine; 3–4 Sound-Familien; wo Stille ist (Skill `motion-sound`).
 - **Ziel-Referenz:** ein Film, dessen Grammatik und Niveau wir treffen wollen, + seine `ref_metrics`-Zahlen (`inspiration.md`).
-- **Werkzeug:** HyperFrames (3D über Skill `motion-3d`) / + Higgsfield (Kosten, Freigabe je Generierung).
-- **Gates:** Style Frames → Storyboard/Animatic → Ton → Abnahme (Standard) oder Critic 1 + Critic 2 (One-Shot).
+- **Werkzeug:** HyperFrames (3D über Skill `motion-3d`) / + Higgsfield für das, was Code nicht kann (Skill
+  `motion-higgsfield`: Kosten, Freigabe je Generierung).
+- **Gates:** Storyboard-Review-Seite (Richtungen, Style Frames, Kosten) → Animatic → Ton → Abnahme (Standard); im
+  One-Shot optional Critic 1 + Critic 2.
+- **Kosten (falls Higgsfield):** Deckel in Credits, Preis je geplanter Generierung vorab (Skill `motion-higgsfield`).
 - **Nicht tun:** was ausdrücklich nicht vorkommen soll (aus Feedback, Marke, Auftrag).
 ```
 

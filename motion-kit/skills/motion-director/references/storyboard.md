@@ -8,6 +8,9 @@ Einstellung ist noch nicht gedacht. Eine Spalte für Überschrift oder Fließtex
 | # | Beat (s / Frame) | Bild: was man passieren sieht | Bewegung + Auslöser | Kamera | Übergang raus (Objekt) | Typo (opt., ≤ 1 Wort, am Objekt) | Ton | Werkzeug | Referenz |
 |---|---|---|---|---|---|---|---|---|---|
 
+Ein Stil pro Film, höchstens ein passender zweiter als eigener Dreh. Wer Referenzen aus drei Welten mischt
+(Whiteboard + Kurzgesagt + Doku), bekommt „wild zusammengewürfelt, keine klare Richtung“.
+
 - **Bild** ist ein Vorgang mit Verb: „Etikettenband reißt, Lampe springt auf Rot", nicht „Problem: Stillstand".
 - **Bewegung + Auslöser:** was bewegt sich wodurch (Klick, Beat, Ursache aus der Vorzeile). Wirkung 4–8 Frames
   nach der Ursache.
@@ -16,8 +19,31 @@ Einstellung ist noch nicht gedacht. Eine Spalte für Überschrift oder Fließtex
 - **Übergang raus:** welches Objekt in die nächste Einstellung trägt. „Schnitt auf Beat" erlaubt, „Blende" nur mit
   Grund.
 - **Typo:** ein Wort/eine Zahl am Objekt oder auf dem Beat; ganze Sätze nur als echter UI-Inhalt.
-- **Ton:** das hörbare Ereignis oder „Stille". Grundlage für die Cue-Liste (`motion-sound`).
-- **Referenz:** slug + Zeitstempel der Grammatik, die diese Zeile nimmt.
+- **Ton:** das hörbare Ereignis oder „Stille“, mit Lage zum Bildereignis („3 Frames vor dem Aufrichten“, „framegenau auf dem Einstich“) und Musikstand. Grundlage für die Cue-Liste (`motion-sound`).
+- **Werkzeug:** Code / echtes Material / Archiv / Bildmodell / Videomodell, bei Generierungen mit geschätzten Credits.
+- **Referenz:** slug + Zeitstempel der Grammatik, die diese Zeile nimmt, und ein Halbsatz „Anders: …“ (was wir nicht
+  übernehmen). So bleibt sichtbar, dass es Grammatik ist und kein Nachbau.
+
+## Review-Seite (eine Seite, dann stoppen)
+
+Das Storyboard war in allen Tests der Hebel mit der besten Wirkung: Mit abgenommenem Storyboard wurden Filme
+angenommen, ohne wurden sie abgelehnt. Abgegeben wird **eine** Seite (HTML oder Markdown mit Bildern), dann wartet der
+Agent auf das Urteil des Nutzers. Reihenfolge:
+
+1. **Ein Satz Wirkung:** „Danach weiß/fühlt der Zuschauer: …“.
+2. **Referenzen als Bilder:** 1–2 konkrete Referenzen mit Zeitstempel als Bildfolgen (YouTube reicht).
+3. **2–3 Richtungen**, je 3 Sätze, mit Leit-Referenz und ehrlichem Risiko. Eine Empfehlung mit Begründung.
+4. **Spannungskurve** der empfohlenen Richtung als kleines Diagramm: Haken, Zug, Atem (geplante Stille), Treffer,
+   Ausklang, jeweils mit Zeiten. Ohne Atem vor dem Treffer gibt es keinen Treffer.
+5. **Shotliste** (Vertrag oben) und **Style Frames** (`style-frames.md`).
+6. **Eigene Ideen und Übernommenes:** was es in keiner Referenz gibt, und was bewusst von der Referenz kommt.
+7. **Faktencheck** bei Doku und Erklärfilm: Aussage im Film → Beleg. Dazu, was der Film bewusst nicht behauptet.
+8. **Kostentabelle** (falls generiert wird): je Shot Test in niedriger Auflösung, Final, Reserve, Summe. Reihenfolge:
+   der riskanteste Shot zuerst, der Treffer vor dem Rest.
+9. **Risiken**, ehrlich, mit Gegenmittel.
+
+Zeiten im Storyboard sind Planung. Sobald eine Stimme da ist, bestimmt sie die Bildzeiten: Takes nicht raffen, um in
+die geplante Länge zu passen, sondern das Bild der Stimme folgen lassen (lieber Sätze streichen).
 
 ## Satz → Bild
 
@@ -45,6 +71,10 @@ durch die Stationen · **Ursache → Wirkung** = Auslöser, Wirkung 4–8 Frames
 | Ursprung → Prozess → Ergebnis | Dinge werden hingelegt, Status-Karten, Ergebnis wächst | Storyboard/Skizze |
 | Frage → Diagramm wächst → Standbild | Element pro Satzteil, Endbild ist verständlich | Whiteboard-Einblendung |
 | Kapitel mit Stilwechsel | jede Passage eine andere Stilkarte, ein roter Faden | Showcase, Showreel |
+| Eine Reise ohne Schnitt | ein Objekt (Linie, Faden, Lichtpunkt) reist durch eine Welt, jeder Übergang ist eine Bewegung durch etwas hindurch; das Ende spiegelt den Anfang | Doku, gestaltete Welt, Erklärfilm, 3D-Welt |
+
+**Roter Faden:** Ein sichtbares Ding läuft durch jede Einstellung und trägt jeden Übergang. Szenenbrüche ohne
+roten Faden versteht der Zuschauer nicht. Die Story muss in einem Satz sagen, was sie bewirkt.
 
 Im Standardprozess für Launchfilme 2–3 Varianten (anderer Haken, anderes Herzstück) skizzieren, eine wählen und
 die Wahl begründen (der Nutzer entscheidet, im One-Shot du).
@@ -59,7 +89,7 @@ die Wahl begründen (der Nutzer entscheidet, im One-Shot du).
   Film teuer.
 - Endkarte = letzte 3 s; das Logo landet ≤ 0,6 s davor. Claim nicht früher einblenden.
 - Kontaktbogen (`python3 motion-inspo/scripts/sheet.py animatic.mp4 check/animatic --every 0.25`) ist die Abgabe für das Gate
-  bzw. für Critic-Durchgang 1.
+  (im One-Shot optional für Critic-Durchgang 1).
 
 ## Beispiel (fiktive Belege-App, falsch → richtig)
 

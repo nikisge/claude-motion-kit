@@ -1,4 +1,10 @@
-# Critic: frischer Blick mit fester Rubrik
+# Critic (optional): frischer Blick mit fester Rubrik
+
+**Optional, seit v0.2 kein Pflichtschritt mehr.** In den Showcase-Filmen vom November 2026 hat der Critic einzelne
+Bildfehler gefunden (Doppelbelichtung an einer Naht, ein Artefakt in einer Wolke), aber keinen Film entscheidend besser
+gemacht. Was wirklich zählte: konkrete Inspo vorher, ein abgenommenes Storyboard und dein eigenes Feedback mit
+Zeitstempeln. Nimm den Critic, wenn du allein ohne Rückmeldung arbeitest (One-Shot) oder einen frischen Blick auf
+Kontaktbögen willst. Höchstens 2 Runden.
 
 Der Critic ist ein Subagent (Agent-Tool, `model: "opus"`, effort high), der **Bilder sieht, nicht Code**. Wer den
 Code kennt, sieht, was gemeint war, nicht was zu sehen ist. Er bekommt nur: Brief, Storyboard, Stilkarte(n),
@@ -9,8 +15,8 @@ Referenz-Bögen (`refs/study/<slug>/`), und je nach Durchgang:
 | 1 (vor dem Animieren) | nach Style Frames + Animatic | Style-Frame-Bogen, Animatic-Kontaktbogen (4 Bilder/s), Animatic-`check.md` |
 | 2 (am Ende) | fertiger Render mit Ton | Kontaktbögen 4 Bilder/s (`sheet.py render.mp4 out --every 0.25`) von Render **und Ziel-Referenz**, Bogen der ersten 2 s mit 8 Bildern/s, ein Vollbild je Storyboard-Zeile am Ende ihrer Bewegung, `check.md` + Flag-Bilder, `check/metrics/metrics.md` (`ref_metrics`, Referenz und Render nebeneinander), `mix.report.json` + `mix.png`, Cue-Liste |
 
-Im Standardprozess ist der Critic Pflicht bei Durchgang 2; Durchgang 1 ersetzt dort die Freigabe nicht. Im
-One-Shot-Modus sind beide Pflicht.
+Durchgang 1 ersetzt nie die Freigabe durch den Menschen. Im One-Shot-Modus ohne Rückfragen sind beide Durchgänge
+sinnvoll, sonst reicht Durchgang 2 oder gar keiner.
 
 ## Auftrag an den Critic (wörtlich übergeben, Pfade einsetzen)
 

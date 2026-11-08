@@ -66,7 +66,7 @@ leiser Klang, unter dem die Musik kurz Platz macht. Kein Sound auf dem Kamera-RÃ
 ## Aufruf
 
 ```bash
-cd content/youtube/editing-suite/motion-studio
+# aus dem Arbeitsordner (dort liegen sound/ und projects/)
 uv run motion-sound/scripts/sound_place.py projects/<p>/cues.json --video projects/<p>/renders/film.mp4 \
   --out projects/<p>/renders/mix.wav --mux projects/<p>/renders/film_ton.mp4
 ```

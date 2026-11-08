@@ -1,7 +1,9 @@
 # Style Frames: das Aussehen festlegen, bevor sich etwas bewegt
 
 Ein Style Frame ist ein **fertig gestaltetes Standbild in voller Auflösung** aus dem späteren Film: echte Typo,
-echte Farben, echte Assets, Licht, Korn. Kein Moodboard, keine Skizze, kein Bild-KI-Entwurf. Wirkt ein Style
+echte Farben, echte Assets, Licht, Korn. Kein Moodboard, keine Skizze. Ausnahme: Einstellungen, die später ein
+Videomodell liefert. Dort ist der Style Frame ein Bildmodell-Entwurf, der zugleich Start- oder Endbild wird
+(Skill `motion-higgsfield`). Er ist nur eine Annäherung, das echte Ergebnis zeigt erst der Test in niedriger Auflösung. Wirkt ein Style
 Frame wie eine Folie, ist die Einstellung falsch, nicht die spätere Animation.
 
 ## Welche drei
@@ -31,8 +33,8 @@ Frame wie eine Folie, ist die Einstellung falsch, nicht die spätere Animation.
 ## Abgabe
 
 `projects/<name>/check/style-frames.jpg` (alle Frames + Referenzen auf einem Bogen, mit Zeitstempel/Szene) und je
-Frame eine PNG in voller Auflösung. Im Standardprozess: der Nutzer gibt frei. Im One-Shot-Modus: gehen in Critic-
-Durchgang 1.
+Frame eine PNG in voller Auflösung. Die Frames stehen auf der Storyboard-Review-Seite (`storyboard.md`) neben den
+Referenzen. Der Nutzer gibt frei; im One-Shot-Modus entscheidest du selbst (optional Critic-Durchgang 1).
 
 ## Typische Fehler
 

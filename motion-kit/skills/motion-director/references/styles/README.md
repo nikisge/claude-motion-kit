@@ -5,7 +5,7 @@ ein gelobter Referenzfilm hat, mit Messwerten und Bauweisen. Jeder Film wählt b
 **erfindet** eine eigene Variante. Gegen KI-Gleichförmigkeit („die KI-Videos sind alle gleich") hilft nur das:
 je Film eine bewusste Stilentscheidung plus mindestens ein eigener Einfall, der in keiner Referenz vorkommt.
 
-Grundlage: Bewertungen von ~50 Referenzfilmen im Oktober 2026 (Links in `motion-inspo/references/referenzfilme.md`), Bögen und
+Grundlage: Bewertungen von ~50 Referenzfilmen im Oktober 2026 und vier Showcase-Filme im November 2026 (Links in `motion-inspo/references/referenzfilme.md`), Bögen und
 Einzelbilder in `refs/study/<slug>/`, Messungen mit `motion-inspo/scripts/motion_check.py` am 11.10.2026.
 
 ## Leitreferenzen laden
@@ -28,6 +28,10 @@ python3 motion-inspo/scripts/refs.py study <slug> --every 0.5
 | Ein Ding erzählt (Produkt, Symbol, Maskottchen) | [3d-object-story](3d-object-story.md) | Makro, Licht, Zerlegung; 3D-Studio `motion-3d/hf3d` |
 | Ursprung, Prozess, Pipeline, Behind the Scenes | [storyboard-sketch](storyboard-sketch.md) | Dinge hinlegen, Status-Karten, Kamera taucht ins Papier |
 | YouTube-Einblendung, Ablauf/Architektur erklären | [whiteboard-explainer](whiteboard-explainer.md) | Skizze zeichnet sich zum Gesprochenen |
+| Wahre Geschichte, Rückblick, Erzählerstimme | [doku-archiv](doku-archiv.md) | echte Karte und Archiv als Rückgrat, eine Fahrt, Licht als Uhr |
+| Echte Aufnahme soll in eine gestaltete Welt kippen; Launch, Intro mit Wow | [gestaltete-welt](gestaltete-welt.md) | Genjutsu + Videomodell + Code-Nähte, ein roter Faden durch alle Werkzeuge |
+| Geschichte ohne Worte in einer Miniaturwelt, Licht als Höhepunkt | [3d-welt](3d-welt.md) | Three.js, Modelle aus Bild → 3D, Path Tracing |
+| „Was passiert, wenn …“: Reise durch Maßstäbe mit Sprecher | [papierschnitt-erklaerer](papierschnitt-erklaerer.md) | verschachtelte Welten, kalte Welt mit einem warmen Element |
 | „Zeig, was du kannst" / Showreel / Bewerbung | **mischen** | z. B. Kinetic-Hook → 3D-Objekt → Apple-Morph → Endkarte; jede Passage eine andere Karte, ein roter Faden (Farbe, Objekt) |
 
 ## So benutzt der Designer die Karten
@@ -53,4 +57,6 @@ Stilabhängige Schwellen: `skills/motion-director/references/rules.md`.
 
 Wenn ein Film einen neuen Stil etabliert, der funktioniert hat: Karte nach demselben Aufbau (Wann wählen, Bildidee,
 Leitreferenzen mit Zeitstempeln, Messwerte, Startwerte, Sound, Signature Moves, Slop-Fallen, Variationen), ≤ 120 Zeilen.
-Kandidaten: Editorial/Collage (achx-2, achx-projects), Cinematic Dark (hermes, kami-circuit).
+Formuliere sie allgemein (was den Stil ausmacht, wann er passt), nicht als Rezept für genau einen Film: Der nächste Film
+soll eine eigene Geschichte im selben Stil erzählen. Kandidaten: Editorial/Collage (achx-2, achx-projects), Cinematic
+Dark (hermes, kami-circuit).

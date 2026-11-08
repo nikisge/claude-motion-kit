@@ -110,7 +110,7 @@ Verläufe + dunklere Akzentteile für Kontrast, ein Produkt mit mehr Teilen (Tas
 ## Fallstricke (gemessen beim Bau)
 
 - **`data-no-timeline` am Root**, wenn keine GSAP-Timeline registriert ist: sonst Lint-Fehler und 45 s Wartezeit je Render.
-- **`snapshot` immer mit `--describe false`**: ist `GEMINI_API_KEY` gesetzt, schickt es sonst jedes Bild an Gemini (bezahlt).
+- **`snapshot` ohne `--describe`**: Seit HyperFrames 0.9.16 ist die Bildbeschreibung per Gemini aus (bezahlt, braucht einen eigenen Schlüssel). In älteren Versionen `--describe false` setzen.
 - **Metall braucht Umgebung**: ohne `env` schwarz; in hellen Szenen `tone: "bright"`, sonst spiegelt Metall einen dunklen Raum.
   Glanz zu hart oder an falscher Stelle → `environmentRotation` je Einstellung drehen statt Lichter umzubauen.
 - **Glas**: wirkt nur mit Struktur dahinter (vor leerem Verlauf unsichtbar/milchig) und von vorn; flach unter

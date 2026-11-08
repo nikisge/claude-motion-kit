@@ -140,45 +140,6 @@
   }
  },
  {
-  "prefix": "sfx/remotion-cc0/",
-  "source": "Remotion SFX (@remotion/sfx)",
-  "author": "Remotion (je Sound als CC0 ausgewiesen)",
-  "license": "CC0-1.0",
-  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
-  "url": "https://www.remotion.dev/docs/sfx",
-  "note": "Nur die 7 Sounds, deren Doku-Seite 'Creative Commons 0' nennt; Meme-Sounds bewusst nicht übernommen.",
-  "files": {
-   "whip.wav": {
-    "description": "Peitschen-Whip: sehr schneller Schwung",
-    "url": "https://www.remotion.dev/docs/sfx/whip"
-   },
-   "whoosh.wav": {
-    "description": "Whoosh: Luftzug für Bewegung",
-    "url": "https://www.remotion.dev/docs/sfx/whoosh"
-   },
-   "page-turn.wav": {
-    "description": "Seite umblättern",
-    "url": "https://www.remotion.dev/docs/sfx/page-turn"
-   },
-   "mouse-click.wav": {
-    "description": "Mausklick",
-    "url": "https://www.remotion.dev/docs/sfx/mouse-click"
-   },
-   "shutter-modern.wav": {
-    "description": "Kamera-Auslöser modern (Screenshot-Moment)",
-    "url": "https://www.remotion.dev/docs/sfx/shutter-modern"
-   },
-   "shutter-old.wav": {
-    "description": "Kamera-Auslöser analog",
-    "url": "https://www.remotion.dev/docs/sfx/shutter-old"
-   },
-   "switch.wav": {
-    "description": "Schalter umlegen",
-    "url": "https://www.remotion.dev/docs/sfx/switch"
-   }
-  }
- },
- {
   "prefix": "sfx/oga-cc0/100-cc0-sfx/",
   "source": "OpenGameArt",
   "author": "rubberduck",

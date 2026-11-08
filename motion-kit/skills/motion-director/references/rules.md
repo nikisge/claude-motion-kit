@@ -1,7 +1,6 @@
 # Prüfregeln mit Zahlen
 
-Startwerte aus dem Lernpfad (`content/youtube/planning/premium-motion-graphics/referenzen/lernpfad-bibliotheken-2026-10-11.md`)
-und eigenen Messungen. Stilkarten dürfen abweichen; die Abweichung steht dann in der Karte oder im Brief.
+Startwerte aus den Bibliotheken in `RESOURCES.md` und eigenen Messungen. Stilkarten dürfen abweichen; die Abweichung steht dann in der Karte oder im Brief.
 
 ## Bewegung
 
@@ -64,9 +63,9 @@ brauchen andere Schwellen. **Immer hart, in jedem Stil:** `headline_slide`, `ech
 | Whiteboard-Einblendung | `--max-shot 13 --long-shots 3 --min-tempo 1.5 --script abschnitt.txt` | lange Bilder, wenn ständig ein Element dazukommt; `echo` hart |
 | Social vertikal | `--max-shot 3 --min-tempo 5` | 0 harte Flags |
 
-Bestanden heißt nur „keine bekannte Slop-Form". Ob es gut ist, entscheidet der Critic an den Bildern.
+Bestanden heißt nur „keine bekannte Slop-Form". Ob es gut ist, entscheidet der Blick auf die Bilder (deiner, der des Nutzers, optional ein Critic).
 
-## Vor dem Critic (Reihenfolge)
+## Vor der Abnahme (Reihenfolge)
 
 1. **Asset-Bogen** geprüft (Masken, Schatten, Schrift).
 2. **Render ↔ Animatic/Style Frame** je Storyboard-Zeile als Vollbild vergleichen; mittlere Abweichung ≤ 5 Stufen

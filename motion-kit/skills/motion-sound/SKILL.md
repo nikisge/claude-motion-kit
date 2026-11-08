@@ -45,9 +45,52 @@ Ohne Bibliothek geht es auch: dann je Film 3–6 passende CC0-Dateien suchen, Li
 5. **Platzieren + mischen:** `uv run scripts/sound_place.py cues.json --video film.mp4 --out mix.wav --mux film_ton.mp4`.
    Ergebnis: Mix auf −14 LUFS / ≤ −1 dBTP, `mix.report.json`, `mix.png` (Wellenform, Cue-Marker, Ducking-Kurve).
 6. **Prüfen** nach `references/mix-check.md`, nach dem Export am MP4:
-   `python3 scripts/sound_verify.py film.mp4 cues.json --out <projekt>/check/sound`.
+   `python3 scripts/sound_verify.py film.mp4 cues.json --out <projekt>/check/sound`. Optional im Feinschliff:
+   **Earshot** als externe Prüfung (unten).
 7. **Freigabe:** Der Mensch bekommt den Ton **allein** (mix.wav), die Cue-Liste und 5 Zeitstempel zum Anhören mit
    Kopfhörer (`HOEREN.md`). Der Agent misst nur, er hört nicht.
+
+## Wer macht was: motion-sound und Earshot
+
+Kein Entweder-oder. **motion-sound macht den Ton** (Bibliothek mit geprüften Lizenzen, Cue-Liste mit Bildgrund,
+Platzieren, Ducking, Master auf −14 LUFS). **[Earshot](https://github.com/Leonxlnx/earshot) hört und prüft ihn**
+(MIT, CPU, als CLI oder MCP-Server). Earshot ist nicht in diesem Kit, nur verlinkt. Installation laut README:
+`uv tool install "earshot[mcp] @ git+https://github.com/Leonxlnx/earshot"`, dann `earshot doctor --fetch`
+(lädt zwei Modelle, ca. 1,1 GB).
+
+| Earshot-Befehl | Wofür im Feinschliff |
+|---|---|
+| `critique film.mp4` | Scorecard gegen 7 professionelle Launchfilme, mit Zeitstempeln und „FIX FIRST“ |
+| `timeline film.wav --video film.mp4 --cues cues.json` | Hörprotokoll: Ereignisse, Lautheit, Sync von Ton zu Schnitt |
+| `sheet film.wav -o check/earshot.png` | Bild mit Frames, Ereignissen, Spektrogramm, Lautheit |
+| `match` / `rank` / `find` | den passenden Sound für eine Beschreibung finden (z. B. „a quill pen writing on paper“) |
+
+Was Earshot bei uns gefunden hat: zu viele markante Schläge, fast mono, ein dünner Boden (zu wenig Tiefton). Nach der
+Korrektur (Akzente 2–3 dB leiser, mehr Pan mit der Bewegung, Tiefton unter Treffer und Reveal) stieg das Urteil von
+„close“ auf „launch-grade“.
+
+**Grenzen:** Das Profil sind musikgeführte Launchfilme ohne Sprecher. Bei Filmen mit Stimme meldet Earshot die
+Silbendichte der Stimme als „zu viele Schläge“ und die Mono-Stimme als „fast mono“. Diese Punkte mit Verstand lesen.
+Earshot hat auch eine Bank mit Sounds aus Code (`sfx`, `kit`): für einzelne Lücken brauchbar (bei uns ein kurzer
+Faden-Zip), aber jeden Sound im Mix prüfen. Earshot ersetzt das Hören nicht: Am Ende entscheidet ein Mensch mit Kopfhörer.
+
+## Stimme (Sprecher-KI)
+
+- **Faires Casting:** Hörproben auf −23 LUFS mit reiner Verstärkung, ohne Limiter (bei −16 LUFS clippen rohe
+  TTS-Takes). Gleicher Text, gleiche Pausen, Namen der Stimmen blind vergeben.
+- **Keine Temporaffung von TTS.** Ein auf 1,12 geraffter Take klang gehetzt und unnatürlich. Die Bildzeiten folgen der
+  Stimme, nicht umgekehrt. Lieber einen Satz streichen.
+- **Regie über Pausen und Musik, nicht über Flüstern.** Geflüsterte oder verschwörerische Sprecher-Regie klingt schnell
+  anzüglich. Spannung entsteht durch eine Pause vor dem Satz und durch Musik, die wegbricht.
+- Ganze, erzählende Sätze statt Telegrammstil („Panne? Werkstatt.“ versteht ohne Vorwissen niemand).
+- Prüfen über Wortzeiten (Transkript mit Zeitstempeln je Wort), dann mit Kopfhörer.
+
+## Treffer gegen Stimme messen
+
+Soll ein Treffer lauter wirken als die Stimme: K-gewichtet (wie LUFS) in 100-ms-Fenstern messen, Treffer gegen die
+lauteste Stimmstelle. Ein Treffer 3–4 dB über der Stimmspitze trägt. Wenn etwas „zu extrem“ wirkt, per Stem-Differenz
+suchen (Mix einmal mit, einmal ohne das Element): Oft ist es nicht der Treffer, sondern die Musik, die danach
+anschwillt. Dann nur diesen Eintrag ändern (`gain_path`, Tiefpass), nicht den ganzen Mix.
 
 ## Harte Regeln
 
@@ -57,10 +100,17 @@ Ohne Bibliothek geht es auch: dann je Film 3–6 passende CC0-Dateien suchen, Li
 - Stille ist ein Werkzeug: 3–8 Frames fast Stille vor dem großen Reveal.
 - 3–4 Sound-Familien pro Film, nicht mehr.
 - Stimme hat Vorrang: Musik 16–22 dB unter der Stimme.
+- Nie eine Sprecher-Spur raffen, um eine Länge zu treffen.
 - Nur Dateien mit geprüfter Lizenz. Neue Quelle: Lizenz auf der Originalseite prüfen, in `sound/sources.json`
   eintragen, Index neu bauen.
 
-## KI-generierte Sounds (Lücken füllen)
+## Lücken füllen: echte Aufnahmen, dann KI
+
+**Echte Aufnahmen zuerst:** Für zarte, reale Geräusche (Federkiel, Stoff, Holz) über
+[openverse.org](https://openverse.org) eine CC0-Aufnahme suchen (`library/LICENSES.md`). Earshot `rank` hilft, aus
+mehreren Kandidaten den passendsten zu finden.
+
+**KI-generierte Sounds** (z. B. Text-zu-Audio über Higgsfield, `motion-higgsfield`):
 
 Text-zu-Audio-Modelle liefern gute **konkrete, laute Einzelereignisse** (Riss, Wurf, Wind, Atem). Prompt im Stil
 „LOUD close-up recording of …, clearly audible, full volume, no music“. Zarte, tonale, stehende oder rhythmische

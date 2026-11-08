@@ -24,7 +24,7 @@ Niveau** treffen (Tempo, Einstellungsgrößen, Kamera, Material, Licht, Textmeng
    + 10 Punkte; keine leere Strecke > 0,3 s außer geplanter Stille; Einstieg bewegt sich ≥ 80 % der Referenz;
    „Kamera steht“ ≤ Referenz + 15 Punkte; Kontrast/Sättigung in der Nähe der Referenz, sonst begründen.
 4. **Prüfen**: `uv run motion-inspo/scripts/ref_metrics.py render.mp4 --ref <ref.mp4> --out check/metrics` gibt beide nebeneinander
-   und hakt die Ziele ab. Die Tabelle geht an den Critic. Beispielzeile siehe oben.
+   und hakt die Ziele ab. Die Tabelle gehört in den Prüfbericht (und an den Critic, falls einer läuft). Beispielzeile siehe oben.
 
 Lehre aus Kimi-3 (gemessen): nur 4,3 harte Schnitte je 10 s, Median-Einstellung 1,8 s; die gefühlte Dichte („jede
 Sekunde ein neues Bild“) kommt aus schnellen Kameraflügen (Bildänderung 5,7 je Bild, Kamera steht nur 14 %), Makros
@@ -39,18 +39,16 @@ Produkt (Tasten) als Text: Textanteil immer an den Bildern gegenprüfen.
    Bereits studiert: `refs/study/<slug>/` (Bogen, Einzelbilder, Schnitte, Tempo).
 3. **Neue Clips** mit `motion-inspo/scripts/refs.py`:
    ```bash
-   cd MS
    python3 motion-inspo/scripts/refs.py search product launch 3d keyboard --n 15   # ~2.500 X-Launchvideos + 55 kuratierte
    python3 motion-inspo/scripts/refs.py get <x.com-status|whatships|youtube|vimeo-url> --name <slug>
    python3 motion-inspo/scripts/refs.py study <slug> --every 0.5                    # Bilder, Bogen, Schnitte, Tempo
    uv run motion-inspo/scripts/motion_check.py refs/clips/<slug>.mp4 --out refs/study/<slug>/check   # Messwerte
    ```
    Für das Review mit dem Nutzer: die wichtigsten Momente als Zeitfenster notieren und als Kontaktbögen zeigen
-   (Bildfolgen, Clips, Bögen, Crops, Paletten) und `tools/review.py` (Moodboard-Seite), siehe SKILL.md „Review-Ablauf“.
+   (Bildfolgen, Bögen, Crops, Paletten), am besten auf einer Review-Seite (siehe `storyboard.md`, „Review-Seite“).
    Suchbegriffe englisch, nach **Bewegung** statt Branche: „camera dives into ui", „kinetic type scale jump",
    „object becomes logo", „paper collage top down".
-4. **Bibliotheken, Skills, Inspo-Seiten**: `RESOURCES.md` im Repo-Hauptordner
-   (`content/youtube/planning/premium-motion-graphics/referenzen/lernpfad-bibliotheken-2026-10-11.md`).
+4. **Bibliotheken, Skills, Inspo-Seiten**: `RESOURCES.md` im Repo-Hauptordner.
 
 Einzelbild zu Zeitpunkt t: `refs/study/<slug>/frames/f_NNNN.jpg` mit NNNN = 2·t + 0,5 (bei `--every 0.5`).
 

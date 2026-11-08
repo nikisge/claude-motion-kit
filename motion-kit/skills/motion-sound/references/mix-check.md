@@ -49,8 +49,12 @@ danach ab, zeichnet die Wellenform und schreibt `HOEREN.md` mit 5 Zeitstempeln f
 Jedes PROBLEM beheben. Die Bilder vor/nach jedem Cue ansehen: sieht man den Grund für den Ton genau dort?
 Im Bericht nie „klingt gut“ schreiben, sondern Messwerte + die 5 Zeitstempel nennen.
 
+Optional danach: `earshot critique film.mp4` (externe Prüfung gegen Profi-Launchfilme, siehe SKILL.md). Befunde wie
+„zu viele markante Schläge“, „fast mono“ oder „dünner Boden“ sind bei musikgeführten Filmen echte Fehler; bei Filmen
+mit Sprecher kommen die ersten beiden oft nur von der Stimme.
+
 ## Ton-Freigabe
 
 Normaler Auftrag: Der Nutzer bekommt `mix.wav` (Ton **allein**, ohne Bild) und die Cue-Liste mit `note`-Spalte. Ton
-allein zeigt sofort, ob er zu voll, zu billig oder zu laut ist. One-Shot/Showcase: Critic bewertet „Sound" in der
-Rubrik; der Designer behebt und rendert neu.
+allein zeigt sofort, ob er zu voll, zu billig oder zu laut ist. One-Shot/Showcase: Messwerte, Earshot und (optional) der Critic
+ersetzen das Ohr nicht; die Kopfhörer-Probe bleibt offen und steht im Bericht.

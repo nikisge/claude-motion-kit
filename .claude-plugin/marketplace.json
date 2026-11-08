@@ -1,14 +1,18 @@
 {
   "name": "claude-motion-kit",
-  "owner": { "name": "Niklas Hansen" },
+  "owner": {
+    "name": "Niklas Hansen"
+  },
   "metadata": {
-    "description": "Motion Graphics in verschiedenen Stilen mit Claude Code und HyperFrames: Prozess, Stilkarten, Referenzfilme, Mess- und Prüfwerkzeuge, Sound, 3D."
+    "description": "Motion Graphics in echten Stilen mit Claude Code, HyperFrames und optional Higgsfield: Prozess in 3 Schritten, Stilkarten, Referenzfilme, Mess- und Prüfwerkzeuge, Sound, 3D.",
+    "version": "0.2.0"
   },
   "plugins": [
     {
       "name": "motion-kit",
       "source": "./motion-kit",
-      "description": "5 Skills: motion-director (Prozess + Stilkarten + Critic), motion-inspo (Referenzen finden und messen), motion-hyperframes, motion-3d (Three.js + Blender), motion-sound."
+      "description": "6 Skills: motion-director (3 Schritte + Storyboard + Stilkarten), motion-inspo (Referenzen finden und messen), motion-hyperframes, motion-higgsfield (Generierung mit Kosten vorab), motion-3d (Three.js, Path Tracing, Blender), motion-sound (mit Earshot als Prüfung).",
+      "version": "0.2.0"
     }
   ]
 }
